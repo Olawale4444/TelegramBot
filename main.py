@@ -5,7 +5,7 @@ from telegram import KeyboardButton, ReplyKeyboardMarkup, ReplyKeyboardRemove
 from weather import get_forecasts
 
 # checking for any new messages --> polling
-updater = Updater(token="1010895549:AAHqknOBtpNIWk5HeiUqhcad9RmtStswl2c")
+updater = Updater(token="XXXXXXXXX:XXXXXXXXXXXXXXXXXX")
 
 # allows to register handler -> command, text, video, audio etc
 dispatcher = updater.dispatcher
