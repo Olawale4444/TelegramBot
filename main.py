@@ -1,4 +1,5 @@
-#Telegram chatbot
+#Telegram weather chatbot
+
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackQueryHandler
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram import KeyboardButton, ReplyKeyboardMarkup, ReplyKeyboardRemove
@@ -40,6 +41,7 @@ def option(bot, update):
          InlineKeyboardButton("Option 2", callback_data="2")],
         [InlineKeyboardButton("Option 3", callback_data="3")]
     ]
+
     reply_markup = InlineKeyboardMarkup(button)
 
     bot.send_message(chat_id=update.message.chat_id,
@@ -55,6 +57,7 @@ def get_location(bot, update):
     button = [
         [KeyboardButton("Share Location", request_location=True)]
     ]
+
     reply_markup = ReplyKeyboardMarkup(button)
     bot.send_message(chat_id=update.message.chat_id,
                      text="Mind sharing location?",
@@ -66,6 +69,7 @@ dispatcher.add_handler(get_location_handler)
 
 
 def location(bot, update):
+
     lat = update.message.location.latitude
     lon = update.message.location.longitude
     forecasts = get_forecasts(lat, lon)
